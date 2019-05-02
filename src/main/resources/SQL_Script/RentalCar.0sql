@@ -225,42 +225,11 @@ GRANT ALTER ROLLBACK SEGMENT TO "RENTALCAR" ;
 create sequence CARS_SEQ
 /
 
-create sequence ELSTATIONS_SEQ
+create sequence STATIONS_SEQ
 /
 
 create sequence LOCATION_SEQ
 /
-
-create table CARS
-(
-  CAR_ID           NUMBER not null
-    constraint CARS_PK
-      primary key,
-  CAR_BRAND        VARCHAR2(255),
-  CAR_MODEL        VARCHAR2(255),
-  CHARGE           FLOAT,
-  LONGITUDE        VARCHAR2(255),
-  LATITUDE         VARCHAR2(255),
-  LOCATION_ADDRESS VARCHAR2(255)
-)
-/
-
-create table LOCATION
-(
-  LOCATION_ID      NUMBER not null,
-  LOCATION_ADDRESS VARCHAR2(255),
-  LONGITUDE        VARCHAR2(255),
-  LATITUDE         VARCHAR2(255)
-)
-/
-
-create unique index LOCATION_LOCATION_ID_UINDEX
-  on LOCATION (LOCATION_ID)
-
-
-alter table LOCATION
-  add constraint LOCATION_PK
-    primary key (LOCATION_ID)
 
 create table STATIONS
 (
@@ -276,4 +245,15 @@ create table STATIONS
   LOCATION_ADDRESS VARCHAR2(255)
 )
 
+INSERT INTO STATIONS VALUES (1, '42.6421','23.3451','Sofia');
+INSERT INTO STATIONS VALUES (2, '42.6412','23.3444','Sofia');
+INSERT INTO STATIONS VALUES (3, '42.6432','23.3457','Sofia');
+INSERT INTO STATIONS VALUES (4, '42.6423','23.3423','Sofia');
+INSERT INTO STATIONS VALUES (5, '42.6455','23.3412','Sofia');
+
+INSERT INTO CARS VALUES (1,'WV', 'Up', 100,      '42.6421','23.3451','Sofia');
+INSERT INTO CARS VALUES (2,'Mercedes', 'S', 100, '42.6412','23.3444','Sofia');
+INSERT INTO CARS VALUES (3,'WV', 'Up', 100,      '42.6432','23.3457','Sofia');
+INSERT INTO CARS VALUES (4,'WV', 'Up', 100,      '42.6423','23.3423','Sofia');
+INSERT INTO CARS VALUES (5,'Mercedes', 'S', 100, '42.6455','23.3412','Sofia');
 
